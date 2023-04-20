@@ -11,4 +11,11 @@
     <string name="login_failed">"Login failed"</string>
     <string name="phone_authentication">Phone authentication</string>
     <string name="confirm_password">Confirm password</string>
+    <string name="title_activity_custom_login">CustomLoginActivity</string>
+    <string name="not_registered_yet_sign_up">Not Registered Yet , Sign Up !</string>
+    <string name="title_activity_phone_login">PhoneLoginActivity</string>
+    <string name="enter_your_phone_number">Enter your phone number</string>
+    <string name="send_otp">Send OTP</string>
+    <string name="title_activity_otpactivity">OTPActivity</string>
+    <string name="enter_otp">Enter OTP</string>
 </resources>
