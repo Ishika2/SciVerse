@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "1043300222665",
+    "project_id": "sciverse-263b7",
+    "storage_bucket": "sciverse-263b7.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1043300222665:android:a1d4a575e01a54ef5b2f18",
+        "android_client_info": {
+          "package_name": "com.example.sciverse"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1043300222665-vchui5a8lf27rv0irt2i74dv8clltu3l.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.sciverse",
+            "certificate_hash": "e0acafdef80635944d3c0bc33fe661d617382cdb"
+          }
+        },
+        {
+          "client_id": "1043300222665-ppnna64ltpucv91gi11jfg1197b8h8a5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBsLrPg-LWdX31gNkw4aeecwLKVc2aBTyY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1043300222665-ppnna64ltpucv91gi11jfg1197b8h8a5.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
