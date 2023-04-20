@@ -15,19 +15,23 @@
         <activity
             android:name=".PhoneAuthentication.OTPActivity"
             android:exported="false"
-            android:label="@string/title_activity_otpactivity" />
+            android:label="SciVerse" />
         <activity
             android:name=".PhoneAuthentication.PhoneLoginActivity"
             android:exported="false"
-            android:label="@string/title_activity_phone_login" />
+            android:label="SciVerse" />
         <activity
             android:name=".CustomAuthentication.CustomLoginActivity"
             android:exported="false"
-            android:label="@string/title_activity_custom_login" />
+            android:label="Sciverse" />
         <activity
             android:name=".CustomAuthentication.CustomSigninActivity"
+            android:exported="false"
+            android:label="SciVerse" />
+        <activity
+            android:name=".SplashScreen"
             android:exported="true"
-            android:label="@string/title_activity_google_login"
+            android:label="SciVerse"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar"
             tools:ignore="MissingClass">
             <intent-filter>
@@ -37,11 +41,9 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".SplashScreen"
+            android:name=".MainActivity"
             android:exported="false"
-            android:label="SciVerse">
-        </activity>
-        <activity android:name=".MainActivity" />
+            android:label="Sciverse"/>
     </application>
 
 </manifest>
