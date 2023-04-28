@@ -24,6 +24,7 @@
         android:id="@+id/proceed"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:fontFamily="@font/cinzel"
         android:text="@string/send_otp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/scf_logo"
@@ -35,10 +36,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="4dp"
+        android:fontFamily="@font/cinzel"
         android:hint="@string/enter_otp"
         android:inputType="number"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/scf_logo"
-        app:layout_constraintVertical_bias="0.096" />
+        app:layout_constraintTop_toBottomOf="@+id/scf_logo" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
