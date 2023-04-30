@@ -39,8 +39,14 @@ class LibraryFragment : Fragment() {
     private fun setupTabLayout() {
         TabLayoutMediator(
             binding.tabLayout, binding.viewPager
-        ) { tab, position -> tab.text = "Tab " + (position + 1) }.attach()
+        ) { tab, position ->
+            when (position) {
+                0 -> tab.text = "Basic User"
+                1 -> tab.text = "Advanced User"
+            }
+        }.attach()
     }
+
 
     private fun setupViewPager() {
         val adapter = ViewPagerAdapter(this, 2)
