@@ -12,26 +12,15 @@
         android:layout_height="wrap_content"
         app:layout_constraintTop_toTopOf="parent">
 
-        <!--        <androidx.appcompat.widget.Toolbar-->
-        <!--            android:id="@+id/toolBar"-->
-        <!--            android:layout_width="match_parent"-->
-        <!--            android:layout_height="wrap_content"-->
-        <!--            android:background="?attr/colorPrimary"-->
-        <!--            android:minHeight="?attr/actionBarSize"-->
-        <!--            android:theme="?attr/actionBarTheme"-->
-        <!--            app:layout_anchor="@+id/appBarLayout"-->
-        <!--            app:layout_anchorGravity="bottom|center"-->
-        <!--            app:layout_scrollFlags="scroll|enterAlways" />-->
-
         <com.google.android.material.tabs.TabLayout
             android:id="@+id/tabLayout"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="?attr/colorPrimary"
-            app:tabIndicatorColor="#a0a0a0"
+            app:tabIndicatorColor="#000000"
             app:tabIndicatorHeight="3dp"
             app:tabMode="fixed"
-            app:tabSelectedTextColor="#a0a0a0"
+            app:tabSelectedTextColor="#000000"
             app:tabTextColor="#000000"
             />
 

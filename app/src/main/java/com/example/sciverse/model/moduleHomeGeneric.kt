@@ -3,8 +3,7 @@ package com.example.sciverse.model
 import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes
 
-data class moduleHome(
+data class moduleHomeGeneric (
     var theViewType: Int,
-    @StringRes val stringResourceId: Int,
-    @DrawableRes val imageResourceId: Int
+    @DrawableRes val stringResourceId1: Int
 )

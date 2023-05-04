@@ -26,4 +26,9 @@
     <string name="library">Library</string>
     <string name="home">Home</string>
     <string name="ATGC">ATGC Module</string>
+    <string name="molality">Molality</string>
+    <string name="molarity">Molarity</string>
+    <string name="atoms">No. of atoms</string>
+    <string name="nav_open">Open</string>
+    <string name="nav_close">Close</string>
 </resources>
