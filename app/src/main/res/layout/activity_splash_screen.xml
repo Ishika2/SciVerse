@@ -14,19 +14,20 @@
         android:id="@+id/gif_text"
         android:layout_width="match_parent"
         android:layout_height="100dp"
-        android:src="@drawable/text_animation_gif_2"
-        app:layout_constraintLeft_toRightOf="parent"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteY="28dp" />
+        android:src="@drawable/text_animation_final"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/textCreated"/>
 
     <TextView
+        android:id="@+id/textCreated"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/cinzel"
         android:text="Created by"
         app:layout_constraintBottom_toTopOf="@+id/scf_logo"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/gif_text" />
 
@@ -34,39 +35,37 @@
         android:id="@+id/scf_logo"
         android:layout_width="145dp"
         android:layout_height="145dp"
-        android:layout_marginBottom="448dp"
+        android:layout_marginTop="100dp"
         android:src="@drawable/scfbio_lab_logo"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/iitdelhi"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 
     <TextView
         android:id="@+id/iitdelhi"
-        android:layout_width="116dp"
-        android:layout_height="33dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:fontFamily="@font/cinzel"
         android:text="IIT DELHI"
         android:textAppearance="@style/TextAppearance.AppCompat.Display2"
         android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.627"
+        app:layout_constraintTop_toBottomOf="@id/imageIIT"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/scf_logo"
-        app:layout_constraintVertical_bias="0.855" />
+        android:layout_marginBottom="70dp"/>
 
     <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="41dp"
-        android:layout_height="31dp"
-        android:layout_marginEnd="8dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/iitdelhi"
-        app:layout_constraintHorizontal_bias="1.0"
+        android:id="@+id/imageIIT"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:src="@drawable/indian_institute_of_technology_delhi_logo"
+        app:layout_constraintBottom_toTopOf="@id/iitdelhi"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/scf_logo"
-        app:layout_constraintVertical_bias="0.853"
-        app:srcCompat="@drawable/indian_institute_of_technology_delhi_logo" />
+        app:layout_constraintTop_toBottomOf="@id/scf_logo"
+        android:layout_marginTop="100dp"
+        app:layout_constraintEnd_toEndOf="parent"/>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
