@@ -1,11 +1,15 @@
 package com.example.sciverse.Adapter
 
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.example.sciverse.AllModules.ATGC_Module
+import com.example.sciverse.AllModules.MolarityActivity
+import com.example.sciverse.AllModules.NormalityActivity
 import com.example.sciverse.R
 import com.example.sciverse.User.AdvanceUserFragment
 import com.example.sciverse.model.moduleAdvance
@@ -30,6 +34,12 @@ class AdapterAdvance(private val context: AdvanceUserFragment, private val datas
         val item = dataset[position]
         holder.textView.text =  context.resources.getString(item.stringResourceId)
         holder.imageView.setImageResource(item.imageResourceId)
+
+        if(holder.textView.text == "ATGC Module") {
+            holder.imageView.setOnClickListener {
+                context.context?.startActivity(Intent(context.context, ATGC_Module::class.java))
+            }
+        }
     }
 
 }

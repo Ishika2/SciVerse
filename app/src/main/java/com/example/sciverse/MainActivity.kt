@@ -11,6 +11,7 @@ import com.example.sciverse.bottomNavBar.CalculatorFragment
 import com.example.sciverse.bottomNavBar.HomeFragment
 import com.example.sciverse.bottomNavBar.LibraryFragment
 import com.example.sciverse.databinding.ActivityMainBinding
+import com.google.android.material.navigation.NavigationView
 import com.google.android.material.tabs.TabLayoutMediator
 
 class MainActivity : AppCompatActivity() {
@@ -55,7 +56,52 @@ class MainActivity : AppCompatActivity() {
 
         // to make the Navigation drawer icon always appear on the action bar
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
+
+        val navigationView = findViewById<NavigationView>(R.id.navigation_drawer)
+        navigationView.setNavigationItemSelectedListener { menuItem ->
+            // Handle menu item clicks here
+            when (menuItem.itemId) {
+                R.id.nav_account -> {
+                    // Handle click on menu item 1
+                    true
+                }
+                R.id.nav_settings -> {
+                    // Handle click on menu item 2
+                    true
+                }
+                // Add more menu item handling as needed
+                else -> false
+            }
+        }
+
+
     }
+
+//    private fun selectDrawerItem(menuItem: MenuItem) {
+//        // Create a new fragment based on the selected menu item
+//        var fragment: Fragment? = null
+//        when (menuItem.itemId) {
+//            R.id.nav_profile -> fragment = ProfileFragment()
+//            R.id.nav_settings -> fragment = SettingsFragment()
+//            R.id.nav_logout -> {
+//                // Handle logout functionality here
+//            }
+//        }
+//
+//        // Replace the current fragment with the selected fragment
+//        if (fragment != null) {
+//            supportFragmentManager.beginTransaction()
+//                .replace(R.id.fragment_container, fragment)
+//                .commit()
+//        }
+//
+//        // Highlight the selected item in the navigation drawer
+//        menuItem.isChecked = true
+//
+//        // Close the navigation drawer
+//        drawerLayout.closeDrawers()
+//    }
+
     private fun setCurrentFragment(fragment: Fragment)=
         supportFragmentManager.beginTransaction().apply {
             replace(R.id.flFragment,fragment)

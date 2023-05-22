@@ -1,12 +1,16 @@
 package com.example.sciverse.Adapter
 
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.core.content.ContextCompat.startActivity
 import androidx.recyclerview.widget.RecyclerView
+import com.example.sciverse.AllModules.ATGC_Module
+import com.example.sciverse.AllModules.MolarityActivity
+import com.example.sciverse.AllModules.NormalityActivity
 import com.example.sciverse.HomeScreenViewHolder.FirstViewHolder
 import com.example.sciverse.HomeScreenViewHolder.SecondViewHolder
 import com.example.sciverse.HomeScreenViewHolder.ThirdViewHolder
-import com.example.sciverse.R
 import com.example.sciverse.bottomNavBar.HomeFragment
 import com.example.sciverse.databinding.ItemCalculatorBinding
 import com.example.sciverse.databinding.ItemGenericBinding
@@ -54,14 +58,14 @@ class AdapterHome(private val context: HomeFragment,
                 viewHolder.textView4.text = context.resources.getString(item.stringResourceId4)
                 viewHolder.imageView4.setImageResource(item.imageResourceId4)
                 // update other views as needed
-//                viewHolder.imageView1.setOnClickListener {
-//                    // navigate to a fragment when imageView1 is clicked
-//                    val fragment = YourFragment()
-//                    val transaction = context.parentFragmentManager.beginTransaction()
-//                    transaction.replace(R.id.fragment_container, fragment)
-//                    transaction.addToBackStack(null)
-//                    transaction.commit()
-//                }
+                viewHolder.textView2.setOnClickListener{
+                    val intent = Intent(context.context, MolarityActivity::class.java)
+                    context.context?.startActivity(intent)
+                }
+                viewHolder.textView3.setOnClickListener{
+                    val intent = Intent(context.context, NormalityActivity::class.java)
+                    context.context?.startActivity(intent)
+                }
             }
             SECOND_VIEW -> {
                 val item = dataset2[position - dataset1.size]
@@ -87,14 +91,10 @@ class AdapterHome(private val context: HomeFragment,
                 viewHolder.textView3.text = context.resources.getString(item.stringResourceId3)
                 viewHolder.imageView3.setImageResource(item.imageResourceId3)
                 // update other views as needed
-//                viewHolder.imageView1.setOnClickListener {
-//                    // navigate to a fragment when imageView1 is clicked
-//                    val fragment = YourFragment()
-//                    val transaction = context.parentFragmentManager.beginTransaction()
-//                    transaction.replace(R.id.fragment_container, fragment)
-//                    transaction.addToBackStack(null)
-//                    transaction.commit()
-//                }
+                viewHolder.textView1.setOnClickListener {
+                    val intent = Intent(context.context, ATGC_Module::class.java)
+                    context.context?.startActivity(intent)
+                }
             }
             else -> throw IllegalArgumentException("Invalid argument type")
         }

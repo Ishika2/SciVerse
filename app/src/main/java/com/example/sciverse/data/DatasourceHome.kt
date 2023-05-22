@@ -13,13 +13,13 @@ class DatasourceHome {
         return listOf(
             moduleHomeCalculator(
                 FIRST_VIEW,
-                R.string.ATGC,
-                R.drawable.bioinfo,
-                R.string.molality,
+                R.string.dummy,
                 R.drawable.bioinfo,
                 R.string.molarity,
                 R.drawable.bioinfo,
-                R.string.atoms,
+                R.string.normality,
+                R.drawable.bioinfo,
+                R.string.dummy,
                 R.drawable.bioinfo
             )
         )
@@ -40,11 +40,11 @@ class DatasourceHome {
                 THIRD_VIEW,
                 R.string.ATGC,
                 R.drawable.bioinfo,
-                R.string.molality,
+                R.string.dummy,
                 R.drawable.bioinfo,
-                R.string.molarity,
+                R.string.dummy,
                 R.drawable.bioinfo,
-                R.string.atoms,
+                R.string.dummy,
                 R.drawable.bioinfo
             )
         )
