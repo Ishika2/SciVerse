@@ -5,12 +5,8 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.viewpager2.widget.ViewPager2
-import com.example.sciverse.R
-import com.example.sciverse.User.ViewPagerAdapter
 import com.example.sciverse.User.viewPager2Adapter
 import com.example.sciverse.databinding.FragmentLibraryBinding
-import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
 
 class LibraryFragment : Fragment() {
@@ -33,13 +29,8 @@ class LibraryFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        lateinit var viewPager: ViewPager2
-        viewPager.adapter = viewPager2Adapter()
-        //setupViewPager()
+        binding.viewPager.adapter = viewPager2Adapter(requireActivity())
         setupTabLayout()
-        if (savedInstanceState != null) {
-            onSaveInstanceState(savedInstanceState)
-        }
     }
 
     private fun setupTabLayout() {
@@ -51,11 +42,5 @@ class LibraryFragment : Fragment() {
                 1 -> tab.text = "Advanced User"
             }
         }.attach()
-    }
-
-
-    private fun setupViewPager() {
-        val adapter = ViewPagerAdapter(this, 2)
-        binding.viewPager.adapter = adapter
     }
 }

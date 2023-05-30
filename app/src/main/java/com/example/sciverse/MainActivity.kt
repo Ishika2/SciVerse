@@ -6,13 +6,11 @@ import android.view.MenuItem
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.fragment.app.Fragment
-import com.example.sciverse.User.ViewPagerAdapter
 import com.example.sciverse.bottomNavBar.CalculatorFragment
 import com.example.sciverse.bottomNavBar.HomeFragment
 import com.example.sciverse.bottomNavBar.LibraryFragment
 import com.example.sciverse.databinding.ActivityMainBinding
 import com.google.android.material.navigation.NavigationView
-import com.google.android.material.tabs.TabLayoutMediator
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
@@ -26,8 +24,20 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         val firstFragment=HomeFragment()
-        val secondFragment=LibraryFragment()
+        var secondFragment=LibraryFragment()
         val thirdFragment=CalculatorFragment()
+
+        // Check if the fragment is added
+        if (secondFragment.isAdded) {
+            // Set the current fragment to the second fragment
+            setCurrentFragment(secondFragment)
+        } else {
+            // Create the second fragment
+            secondFragment = LibraryFragment()
+
+            // Set the current fragment to the second fragment
+            setCurrentFragment(secondFragment)
+        }
 
         setCurrentFragment(firstFragment)
 
@@ -73,8 +83,6 @@ class MainActivity : AppCompatActivity() {
                 else -> false
             }
         }
-
-
     }
 
 //    private fun selectDrawerItem(menuItem: MenuItem) {
