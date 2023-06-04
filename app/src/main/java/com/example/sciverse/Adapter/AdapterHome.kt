@@ -6,8 +6,12 @@ import android.view.ViewGroup
 import androidx.core.content.ContextCompat.startActivity
 import androidx.recyclerview.widget.RecyclerView
 import com.example.sciverse.AllModules.ATGC_Module
+import com.example.sciverse.AllModules.DilutionActivity
+import com.example.sciverse.AllModules.GCpercentActivity
+import com.example.sciverse.AllModules.MolalityActivity
 import com.example.sciverse.AllModules.MolarityActivity
 import com.example.sciverse.AllModules.NormalityActivity
+import com.example.sciverse.AllModules.ReverseComplementActivity
 import com.example.sciverse.HomeScreenViewHolder.FirstViewHolder
 import com.example.sciverse.HomeScreenViewHolder.SecondViewHolder
 import com.example.sciverse.HomeScreenViewHolder.ThirdViewHolder
@@ -58,12 +62,20 @@ class AdapterHome(private val context: HomeFragment,
                 viewHolder.textView4.text = context.resources.getString(item.stringResourceId4)
                 viewHolder.imageView4.setImageResource(item.imageResourceId4)
                 // update other views as needed
+                viewHolder.textView1.setOnClickListener{
+                    val intent = Intent(context.context, MolalityActivity::class.java)
+                    context.context?.startActivity(intent)
+                }
                 viewHolder.textView2.setOnClickListener{
                     val intent = Intent(context.context, MolarityActivity::class.java)
                     context.context?.startActivity(intent)
                 }
                 viewHolder.textView3.setOnClickListener{
                     val intent = Intent(context.context, NormalityActivity::class.java)
+                    context.context?.startActivity(intent)
+                }
+                viewHolder.textView4.setOnClickListener{
+                    val intent = Intent(context.context, DilutionActivity::class.java)
                     context.context?.startActivity(intent)
                 }
             }
@@ -93,6 +105,14 @@ class AdapterHome(private val context: HomeFragment,
                 // update other views as needed
                 viewHolder.textView1.setOnClickListener {
                     val intent = Intent(context.context, ATGC_Module::class.java)
+                    context.context?.startActivity(intent)
+                }
+                viewHolder.textView2.setOnClickListener{
+                    val intent = Intent(context.context, GCpercentActivity::class.java)
+                    context.context?.startActivity(intent)
+                }
+                viewHolder.textView3.setOnClickListener{
+                    val intent = Intent(context.context, ReverseComplementActivity::class.java)
                     context.context?.startActivity(intent)
                 }
             }

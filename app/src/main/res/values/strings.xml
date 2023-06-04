@@ -33,5 +33,9 @@
     <string name="nav_open">Open</string>
     <string name="nav_close">Close</string>
     <string name="dummy">Demo class</string>
+    <string name="dilution">Dilution</string>
+    <string name="DNAcutting">DNA Cutting</string>
+    <string name="GCpercent">GC Percent</string>
+    <string name="RevComplement">Reverse Complement</string>
 
 </resources>

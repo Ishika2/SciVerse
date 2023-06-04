@@ -8,6 +8,8 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.sciverse.AllModules.ATGC_Module
+import com.example.sciverse.AllModules.DilutionActivity
+import com.example.sciverse.AllModules.MolalityActivity
 import com.example.sciverse.AllModules.MolarityActivity
 import com.example.sciverse.AllModules.NormalityActivity
 import com.example.sciverse.R
@@ -44,6 +46,16 @@ class AdapterBasic(private val context: BasicUserFragment, private val dataset: 
         if(holder.textView.text == "Normality") {
             holder.imageView.setOnClickListener {
                 context.context?.startActivity(Intent(context.context, NormalityActivity::class.java))
+            }
+        }
+        if(holder.textView.text == "Molality") {
+            holder.imageView.setOnClickListener {
+                context.context?.startActivity(Intent(context.context, MolalityActivity::class.java))
+            }
+        }
+        if(holder.textView.text == "Dilution") {
+            holder.imageView.setOnClickListener {
+                context.context?.startActivity(Intent(context.context, DilutionActivity::class.java))
             }
         }
     }

@@ -8,8 +8,11 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.sciverse.AllModules.ATGC_Module
+import com.example.sciverse.AllModules.DNAcuttingActivity
+import com.example.sciverse.AllModules.GCpercentActivity
 import com.example.sciverse.AllModules.MolarityActivity
 import com.example.sciverse.AllModules.NormalityActivity
+import com.example.sciverse.AllModules.ReverseComplementActivity
 import com.example.sciverse.R
 import com.example.sciverse.User.AdvanceUserFragment
 import com.example.sciverse.model.moduleAdvance
@@ -38,6 +41,21 @@ class AdapterAdvance(private val context: AdvanceUserFragment, private val datas
         if(holder.textView.text == "ATGC Module") {
             holder.imageView.setOnClickListener {
                 context.context?.startActivity(Intent(context.context, ATGC_Module::class.java))
+            }
+        }
+        if(holder.textView.text == "DNA Cutting") {
+            holder.imageView.setOnClickListener {
+                context.context?.startActivity(Intent(context.context, DNAcuttingActivity::class.java))
+            }
+        }
+        if(holder.textView.text == "GC Percent") {
+            holder.imageView.setOnClickListener {
+                context.context?.startActivity(Intent(context.context, GCpercentActivity::class.java))
+            }
+        }
+        if(holder.textView.text == "Reverse Complement") {
+            holder.imageView.setOnClickListener {
+                context.context?.startActivity(Intent(context.context, ReverseComplementActivity::class.java))
             }
         }
     }

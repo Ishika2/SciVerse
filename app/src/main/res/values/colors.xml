@@ -22,6 +22,7 @@
     <color name="red946">#00bbf9</color>
     <color name="teal_700">#3f37c9</color>
     <color name="offWhite">#b5179e</color>
+    <color name="offwhite">#E8E0DC</color>
     <color name="white">#FFFFFFFF</color>
     <color name="black">#000000</color>
 </resources>

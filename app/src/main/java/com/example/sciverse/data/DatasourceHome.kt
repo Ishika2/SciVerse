@@ -13,14 +13,14 @@ class DatasourceHome {
         return listOf(
             moduleHomeCalculator(
                 FIRST_VIEW,
-                R.string.dummy,
-                R.drawable.bioinfo,
+                R.string.molality,
+                R.drawable._4072019_38,
                 R.string.molarity,
-                R.drawable.bioinfo,
+                R.drawable._4072019_38,
                 R.string.normality,
-                R.drawable.bioinfo,
-                R.string.dummy,
-                R.drawable.bioinfo
+                R.drawable._4072019_38,
+                R.string.dilution,
+                R.drawable._4072019_38
             )
         )
     }
@@ -39,13 +39,13 @@ class DatasourceHome {
             moduleHomeModule(
                 THIRD_VIEW,
                 R.string.ATGC,
-                R.drawable.bioinfo,
+                R.drawable.vecteezy_dna_helix_symbol_isolated_on_white_background_6154345,
+                R.string.GCpercent,
+                R.drawable.vecteezy_dna_helix_symbol_isolated_on_white_background_6154345,
+                R.string.RevComplement,
+                R.drawable.vecteezy_dna_helix_symbol_isolated_on_white_background_6154345,
                 R.string.dummy,
-                R.drawable.bioinfo,
-                R.string.dummy,
-                R.drawable.bioinfo,
-                R.string.dummy,
-                R.drawable.bioinfo
+                R.drawable.vecteezy_dna_helix_symbol_isolated_on_white_background_6154345
             )
         )
     }
