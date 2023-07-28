@@ -5,5 +5,7 @@ import androidx.annotation.StringRes
 
 data class moduleBasic(
     @StringRes val stringResourceId: Int,
-    @DrawableRes val imageResourceId: Int
+    @StringRes val summaryResourceId: Int,
+    @DrawableRes val imageResourceId: Int,
+    var isExpandable: Boolean = false
 )

@@ -37,5 +37,14 @@
     <string name="DNAcutting">DNA Cutting</string>
     <string name="GCpercent">GC Percent</string>
     <string name="RevComplement">Reverse Complement</string>
+    <string name="this_is_a_summary_of_the_molarity_topic">This is a summary of the topic.</string>
+    <string name="ATGC_summary">calculate_ATGC_number_frequency : it helps us calculate the total number of A, T, G and C nucleotides in a given genomic sequence and further provides their frequency. Input to this should be a file containing the sequence (spanning multiple lines or in a single line).
+</string>
+    <string name="GC_percent">GC_percentage: Calculates the GC percentage of the input DNA sequence. Input sequence should be in a file in either a single line or in multiple lines.
+</string>
+    <string name="rev_compliment">rev_complement : This generates the reverse complement of an input sequence  present in a file. If multiple sequences are present (separated by newline (\n)), then their reverse complement will be on new lines for each sequence.
+</string>
+    <string name="DNA_cutting"> DNA_cutting: it extracts the portion of DNA around a particular position within a DNA sequence. It takes as input the sequence in a file (single line or multi-lined), the position around which we need to extract the DNA, a start position (upstream to the extraction position) and an end position (downstream to the extraction position).
+</string>
 
 </resources>
