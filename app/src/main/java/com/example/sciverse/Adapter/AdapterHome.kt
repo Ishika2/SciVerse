@@ -54,54 +54,29 @@ class AdapterHome(private val context: HomeFragment,
                 val item = dataset1[position]
                 val viewHolder = holder as FirstViewHolder
                 viewHolder.textView1.text = context.resources.getString(item.stringResourceId1)
-                viewHolder.imageView1.setImageResource(item.imageResourceId1)
+                viewHolder.summary1.text = context.resources.getString(item.summary1)
                 viewHolder.textView2.text = context.resources.getString(item.stringResourceId2)
-                viewHolder.imageView2.setImageResource(item.imageResourceId2)
-                viewHolder.textView3.text = context.resources.getString(item.stringResourceId3)
-                viewHolder.imageView3.setImageResource(item.imageResourceId3)
-                viewHolder.textView4.text = context.resources.getString(item.stringResourceId4)
-                viewHolder.imageView4.setImageResource(item.imageResourceId4)
+                viewHolder.summary2.text = context.resources.getString(item.summary2)
                 // update other views as needed
-                viewHolder.textView1.setOnClickListener{
+                viewHolder.go1.setOnClickListener{
                     val intent = Intent(context.context, MolalityActivity::class.java)
                     context.context?.startActivity(intent)
                 }
-                viewHolder.textView2.setOnClickListener{
+                viewHolder.go2.setOnClickListener{
                     val intent = Intent(context.context, MolarityActivity::class.java)
-                    context.context?.startActivity(intent)
-                }
-                viewHolder.textView3.setOnClickListener{
-                    val intent = Intent(context.context, NormalityActivity::class.java)
-                    context.context?.startActivity(intent)
-                }
-                viewHolder.textView4.setOnClickListener{
-                    val intent = Intent(context.context, DilutionActivity::class.java)
                     context.context?.startActivity(intent)
                 }
             }
             SECOND_VIEW -> {
                 val item = dataset2[position - dataset1.size]
                 val viewHolder = holder as SecondViewHolder
-                viewHolder.imageView.setImageResource(item.stringResourceId1)
-                // update other views as needed
-//                viewHolder.imageView1.setOnClickListener {
-//                    // navigate to a fragment when imageView1 is clicked
-//                    val fragment = YourFragment()
-//                    val transaction = context.parentFragmentManager.beginTransaction()
-//                    transaction.replace(R.id.fragment_container, fragment)
-//                    transaction.addToBackStack(null)
-//                    transaction.commit()
-//                }
             }
             THIRD_VIEW -> {
                 val item = dataset3[position - dataset1.size - dataset2.size]
                 val viewHolder = holder as ThirdViewHolder
                 viewHolder.textView1.text = context.resources.getString(item.stringResourceId1)
-                viewHolder.imageView1.setImageResource(item.imageResourceId1)
                 viewHolder.textView2.text = context.resources.getString(item.stringResourceId2)
-                viewHolder.imageView2.setImageResource(item.imageResourceId2)
                 viewHolder.textView3.text = context.resources.getString(item.stringResourceId3)
-                viewHolder.imageView3.setImageResource(item.imageResourceId3)
                 // update other views as needed
                 viewHolder.textView1.setOnClickListener {
                     val intent = Intent(context.context, ATGC_Module::class.java)

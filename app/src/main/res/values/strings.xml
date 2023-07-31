@@ -46,5 +46,8 @@
 </string>
     <string name="DNA_cutting"> DNA_cutting: it extracts the portion of DNA around a particular position within a DNA sequence. It takes as input the sequence in a file (single line or multi-lined), the position around which we need to extract the DNA, a start position (upstream to the extraction position) and an end position (downstream to the extraction position).
 </string>
-
+    <string name="molality_summary">Molality refers to the number of moles of solute per kilogram of solvent. Its a measure of concentration in a solution.
+</string>
+    <string name="molalrity_summary">Molarity, on the other hand, is the number of moles of solute per liter of solution. It quantifies the concentration in a given volume.
+</string>
 </resources>

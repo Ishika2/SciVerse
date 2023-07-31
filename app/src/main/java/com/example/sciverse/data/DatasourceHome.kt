@@ -14,13 +14,9 @@ class DatasourceHome {
             moduleHomeCalculator(
                 FIRST_VIEW,
                 R.string.molality,
-                R.color.white,
+                R.string.molality_summary,
                 R.string.molarity,
-                R.color.white,
-                R.string.normality,
-                R.color.white,
-                R.string.dilution,
-                R.color.white
+                R.string.molalrity_summary
             )
         )
     }

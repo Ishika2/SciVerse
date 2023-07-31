@@ -4,17 +4,14 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.sciverse.databinding.ItemCalculatorBinding
+import org.w3c.dom.Text
 
 class FirstViewHolder(val binding:ItemCalculatorBinding):RecyclerView.ViewHolder(binding.root) {
     val textView1: TextView = binding.textView1
-    val imageView1: ImageView = binding.imageView1
+    val summary1: TextView = binding.summary1
+    val go1: TextView = binding.go1
 
     val textView2: TextView = binding.textView2
-    val imageView2: ImageView = binding.imageView2
-
-    val textView3: TextView = binding.textView3
-    val imageView3: ImageView = binding.imageView3
-
-    val textView4: TextView = binding.textView4
-    val imageView4: ImageView = binding.imageView4
+    val summary2: TextView = binding.summary2
+    val go2: TextView = binding.go2
 }
