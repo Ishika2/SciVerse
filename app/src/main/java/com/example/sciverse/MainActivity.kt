@@ -83,6 +83,10 @@ class MainActivity : AppCompatActivity() {
                 else -> false
             }
         }
+
+        binding.imagebutton.setOnClickListener{
+            drawerLayout.openDrawer(navigationView)
+        }
     }
 
 //    private fun selectDrawerItem(menuItem: MenuItem) {

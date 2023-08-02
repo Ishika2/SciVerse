@@ -14,30 +14,42 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/constraintLayout1"
             android:layout_width="match_parent"
-            android:layout_height="100dp"
+            android:layout_height="300dp"
             android:orientation="vertical"
             app:layout_constraintTop_toTopOf="parent">
 
             <ImageView
                 android:id="@+id/imageView"
                 app:layout_constraintEnd_toEndOf="parent"
-                android:layout_width="100dp"
-                android:layout_height="match_parent"
+                android:layout_width="match_parent"
+                android:layout_height="250dp"
                 android:importantForAccessibility="no"
-                android:scaleType="centerCrop" />
+                android:scaleType="centerCrop"
+                app:layout_constraintBottom_toTopOf="@+id/textView1"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
 
             <TextView
-                android:id="@+id/textView"
+                android:id="@+id/textView1"
                 android:layout_width="0dp"
-                android:layout_height="match_parent"
+                android:layout_height="80dp"
                 android:textAppearance="?attr/textAppearanceHeadline6"
                 android:padding="16dp"
-                android:textSize="18sp"
+                android:textSize="30sp"
                 android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toStartOf="@+id/imageView"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintBottom_toBottomOf="parent"/>
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:text="ATGC_module"/>
+
+<!--            <TextView-->
+<!--                android:id="@+id/textview2"-->
+<!--                android:layout_width="0dp"-->
+<!--                android:layout_height="30dp"-->
+<!--                android:padding="16dp"-->
+<!--                android:textSize="20sp"-->
+<!--                android:textStyle="normal"-->
+<!--                app:layout_constraintStart_toStartOf="parent"-->
+<!--                app:layout_constraintBottom_toBottomOf="parent"/>-->
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -47,6 +59,7 @@
             android:layout_height="wrap_content"
             app:layout_constraintTop_toBottomOf="@+id/constraintLayout1"
             android:padding="16dp"
+            android:textSize="20sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"/>
@@ -60,7 +73,10 @@
             android:layout_marginTop="16dp"
             android:text="Open"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/summary" />
+            app:layout_constraintTop_toBottomOf="@+id/summary"
+            android:background="@color/white"
+            android:elevation="0dp"
+            android:shadowColor="@color/white"/>
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </com.google.android.material.card.MaterialCardView>

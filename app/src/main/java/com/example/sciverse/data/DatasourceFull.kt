@@ -7,14 +7,8 @@ import com.example.sciverse.model.moduleBasic
 class DatasourceFull {
     fun loadModules(): List<allmodules> {
         return listOf<allmodules>(
-            allmodules(R.string.dilution),
-            allmodules(R.string.ATGC),
-            allmodules(R.string.DNA_cutting),
-            allmodules(R.string.GC_percent),
-            allmodules(R.string.RevComplement),
-            allmodules(R.string.molality),
-            allmodules(R.string.molarity),
-            allmodules(R.string.normality)
+            allmodules(R.string.DNAcutting,R.string.DNA_cutting, R.drawable.dna_strands_which_are_black_in_color_and_white_ful__4_),
+            allmodules(R.string.ATGC,R.string.ATGC_summary,R.drawable.dna_strands_which_are_black_in_color_and_white_ful__2_)
         )
     }
 }

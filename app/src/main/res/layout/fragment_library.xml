@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".bottomNavBar.LibraryFragment"
-    android:background="@color/offwhite">
+    android:background="@color/white">
 
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/appBarLayout"
@@ -17,12 +17,12 @@
             android:id="@+id/tabLayout"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="?attr/colorPrimary"
-            app:tabIndicatorColor="#FFFCFC"
-            app:tabIndicatorHeight="3dp"
+            android:background="@color/white"
+            app:tabIndicatorColor="@color/black"
+            app:tabIndicatorHeight="5dp"
             app:tabMode="fixed"
-            app:tabSelectedTextColor="#FFFFFF"
-            app:tabTextColor="#FFFFFF"
+            app:tabSelectedTextColor="@color/black"
+            app:tabTextColor="@color/black"
             />
 
     </com.google.android.material.appbar.AppBarLayout>

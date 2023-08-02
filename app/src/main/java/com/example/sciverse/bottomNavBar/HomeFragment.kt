@@ -28,29 +28,9 @@ class HomeFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val myDataset1 = DatasourceHome().loadModulesForCalculatorView()
-        val myDataset2 = DatasourceHome().loadModulesForGenericView()
-        val myDataset3 = DatasourceHome().loadModulesForModuleView()
-        binding.recyclerView.adapter = AdapterHome(this, myDataset1, myDataset2, myDataset3)
+        val myDataset = DatasourceFull().loadModules()
+        binding.recyclerView.adapter = AdapterHome(this, myDataset)
         binding.recyclerView.setHasFixedSize(true)
-
-        val originalDataset: List<allmodules> = DatasourceFull().loadModules()
-        val filteredDataset: List<allmodules> = originalDataset
-
-        binding.searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener,
-            androidx.appcompat.widget.SearchView.OnQueryTextListener {
-            override fun onQueryTextSubmit(query: String?): Boolean {
-                return false
-            }
-
-            override fun onQueryTextChange(newText: String?): Boolean {
-                filterDataset(newText, filteredDataset)
-                return true
-            }
-        })
-    }
-
-    private fun filterDataset(query: String?, originalDataset: List<allmodules>) {
     }
 
         override fun onDestroyView() {
