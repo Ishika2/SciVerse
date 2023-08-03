@@ -54,33 +54,6 @@ class CustomSigninActivity : AppCompatActivity() {
         auth = FirebaseAuth.getInstance()
         // [END initialize_auth]
 
-        binding.login.setOnClickListener {
-            val email = binding.username.text.toString()
-            val pass = binding.password.text.toString()
-            val confirmPass = binding.confirmPassword.text.toString()
-
-
-            if (email.isNotEmpty() && pass.isNotEmpty() && confirmPass.isNotEmpty()) {
-                if (pass == confirmPass) {
-
-                    auth.createUserWithEmailAndPassword(email, pass).addOnCompleteListener {
-                        if (it.isSuccessful) {
-                            val intent = Intent(this, MainActivity::class.java)
-                            startActivity(intent)
-                        } else {
-                            Toast.makeText(this, it.exception.toString(), Toast.LENGTH_SHORT).show()
-
-                        }
-                    }
-                } else {
-                    Toast.makeText(this, "Password is not matching", Toast.LENGTH_SHORT).show()
-                }
-            } else {
-                Toast.makeText(this, "Empty Fields Are not Allowed !!", Toast.LENGTH_SHORT).show()
-
-            }
-        }
-
         auth = Firebase.auth(Firebase.app)
         // Configure Google Sign In
         val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
@@ -89,17 +62,8 @@ class CustomSigninActivity : AppCompatActivity() {
             .build()
 
         googleSignInClient = GoogleSignIn.getClient(this, gso)
-        binding.googleLogo.setOnClickListener{
+        binding.cardview.setOnClickListener{
             signIn()
-        }
-
-        binding.alreadySignin.setOnClickListener{
-            val intent = Intent(this, CustomLoginActivity::class.java)
-            startActivity(intent)
-        }
-
-        binding.textView.setOnClickListener{
-            startActivity(Intent(this, PhoneLoginActivity::class.java))
         }
     }
 
@@ -133,8 +97,9 @@ class CustomSigninActivity : AppCompatActivity() {
 
     private fun firebaseAuthWithGoogle(idToken: String) {
         val credential = GoogleAuthProvider.getCredential(idToken, null)
-        binding.googleLogo.visibility = View.GONE
-        binding.loading.visibility = View.VISIBLE
+        binding.cardview.visibility = View.GONE
+        binding.wait.visibility = View.VISIBLE
+        binding.weasel.visibility = View.VISIBLE
         GlobalScope.launch(Dispatchers.IO) {
             val auth = auth.signInWithCredential(credential).await()
             val firebaseUser = auth.user
@@ -152,8 +117,9 @@ class CustomSigninActivity : AppCompatActivity() {
             startActivity(intent)
             finish()
         } else {
-            binding.googleLogo.visibility = View.VISIBLE
-            binding.loading.visibility = View.GONE
+            binding.cardview.visibility = View.VISIBLE
+            binding.wait.visibility = View.GONE
+            binding.weasel.visibility = View.GONE
         }
     }
 

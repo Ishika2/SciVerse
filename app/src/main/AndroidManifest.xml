@@ -14,6 +14,9 @@
         android:theme="@style/Theme.SciVerse"
         tools:targetApi="tiramisu">
         <activity
+            android:name=".NavigationDrawer.ProfileActivity"
+            android:exported="false" />
+        <activity
             android:name=".AllModules.ReverseComplementActivity"
             android:exported="false" />
         <activity
