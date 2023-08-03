@@ -1,4 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="500dp"
+        android:background="@drawable/hd_wallpaper_dna_dark_dna"/>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="150dp"
+        app:cardCornerRadius="50dp"
+        android:outlineSpotShadowColor="@color/white">
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -100,7 +127,8 @@
         android:textColor="@color/black"
         app:layout_constraintEnd_toStartOf="@id/textResult"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/SubmitButton" />
+        app:layout_constraintTop_toBottomOf="@id/SubmitButton"
+        app:layout_constraintBottom_toTopOf="@id/watchvideo"/>
 
     <EditText
         android:id="@+id/editVolume"
@@ -138,4 +166,29 @@
         app:layout_constraintTop_toBottomOf="@id/editVolume"
         android:layout_marginTop="5dp" />
 
+    <Button
+        android:id="@+id/watchvideo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/textResult2"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:text="Watch video for reference!"
+        android:layout_margin="30dp"
+        android:textColor="@color/black"
+        android:textSize="15sp"
+        />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
+                <include layout="@layout/bottom_sheet_layout" />
+            </LinearLayout>
+
+        </androidx.core.widget.NestedScrollView>
+
+    </androidx.cardview.widget.CardView>
+
+
+
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

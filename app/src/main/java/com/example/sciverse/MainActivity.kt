@@ -6,6 +6,7 @@ import android.view.MenuItem
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.fragment.app.Fragment
+import com.example.sciverse.NavigationDrawer.ProfileFragment
 import com.example.sciverse.bottomNavBar.CalculatorFragment
 import com.example.sciverse.bottomNavBar.HomeFragment
 import com.example.sciverse.bottomNavBar.LibraryFragment
@@ -86,6 +87,9 @@ class MainActivity : AppCompatActivity() {
 
         binding.imagebutton.setOnClickListener{
             drawerLayout.openDrawer(navigationView)
+        }
+        binding.profilebutton.setOnClickListener{
+            setCurrentFragment(ProfileFragment())
         }
     }
 

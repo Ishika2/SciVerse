@@ -3,12 +3,15 @@ package com.example.sciverse.AllModules
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.webkit.WebChromeClient
+import android.webkit.WebView
 import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
 import com.example.sciverse.R
 import com.example.sciverse.databinding.ActivityMolalityBinding
 import com.example.sciverse.sshTask
+import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.jcraft.jsch.ChannelExec
 import com.jcraft.jsch.JSch
 import com.jcraft.jsch.Session
@@ -68,6 +71,9 @@ class MolalityActivity : AppCompatActivity() {
                 Toast.makeText(applicationContext, "Your Job ID is $JobId", Toast.LENGTH_LONG)
             toast2.show()
 
+        }
+        binding.watchvideo.setOnClickListener {
+            showBottomSheet()
         }
     }
 
@@ -132,4 +138,19 @@ class MolalityActivity : AppCompatActivity() {
             session.disconnect()
         }
     }
+
+    private fun showBottomSheet() {
+        val dialogView = layoutInflater.inflate(R.layout.bottom_sheet_layout, null)
+        val bottomSheetDialog = BottomSheetDialog(this, R.style.BottomSheetDailogTheme)
+        bottomSheetDialog.setContentView(dialogView)
+
+        val webView: WebView = dialogView.findViewById(R.id.webView) // Find the WebView inside the dialogView
+        val video = "<iframe width=\"100%\" height=\"100%\" src=\"https://www.youtube.com/embed/tUesv5u5bvA\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" allowfullscreen></iframe>"
+        webView.loadData(video, "text/html", "utf-8")
+        webView.settings.javaScriptEnabled = true
+        webView.webChromeClient = WebChromeClient()
+
+        bottomSheetDialog.show()
+    }
+
 }

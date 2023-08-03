@@ -53,24 +53,24 @@ class AdapterCalculator(private val context: CalculatorFragment, private val dat
         holder.textView2.visibility = if(isExpandable) View.VISIBLE else View.GONE
         holder.button.visibility = if(isExpandable) View.VISIBLE else View.GONE
 
-        if(holder.textView.text == "ATGC Module"){
+        if(holder.textView.text == "Molality"){
             holder.button.setOnClickListener{
-                context.context?.startActivity(Intent(context.context, ATGC_Module::class.java))
+                context.context?.startActivity(Intent(context.context, MolalityActivity::class.java))
             }
         }
-        if(holder.textView.text == "DNA Cutting"){
+        if(holder.textView.text == "Molarity"){
             holder.button.setOnClickListener{
-                context.context?.startActivity(Intent(context.context, DNAcuttingActivity::class.java))
+                context.context?.startActivity(Intent(context.context, MolarityActivity::class.java))
             }
         }
-        if(holder.textView.text == "GC Percent"){
+        if(holder.textView.text == "Normality"){
             holder.button.setOnClickListener{
-                context.context?.startActivity(Intent(context.context, GCpercentActivity::class.java))
+                context.context?.startActivity(Intent(context.context, NormalityActivity::class.java))
             }
         }
-        if(holder.textView.text == "Reverse Complement"){
+        if(holder.textView.text == "Dilution"){
             holder.button.setOnClickListener{
-                context.context?.startActivity(Intent(context.context, ReverseComplementActivity::class.java))
+                context.context?.startActivity(Intent(context.context, DilutionActivity::class.java))
             }
         }
 

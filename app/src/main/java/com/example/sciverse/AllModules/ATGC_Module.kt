@@ -8,6 +8,8 @@ import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.webkit.WebChromeClient
+import android.webkit.WebView
 import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
@@ -15,6 +17,7 @@ import androidx.core.app.ActivityCompat
 import com.example.sciverse.R
 import com.example.sciverse.databinding.ActivityAtgcModuleBinding
 import com.example.sciverse.sshTask
+import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.jcraft.jsch.ChannelExec
 import com.jcraft.jsch.JSch
 import com.jcraft.jsch.Session
@@ -31,6 +34,7 @@ import java.lang.Exception
 
 class ATGC_Module : AppCompatActivity() {
     lateinit var binding: ActivityAtgcModuleBinding
+    lateinit var dialog: BottomSheetDialog
     var JobId: String = System.currentTimeMillis().toString() //"1234"
     val JobName: String = "DNA"
     val sshTask2 = sshTask()
@@ -118,6 +122,9 @@ class ATGC_Module : AppCompatActivity() {
             ),
             PackageManager.PERMISSION_GRANTED
         )
+        binding.watchvideo.setOnClickListener {
+            showBottomSheet()
+        }
     }
 
 
@@ -297,6 +304,20 @@ class ATGC_Module : AppCompatActivity() {
 
         return finalFile
 
+    }
+
+    private fun showBottomSheet() {
+        val dialogView = layoutInflater.inflate(R.layout.bottom_sheet_layout, null)
+        val bottomSheetDialog = BottomSheetDialog(this, R.style.BottomSheetDailogTheme)
+        bottomSheetDialog.setContentView(dialogView)
+
+        val webView: WebView = dialogView.findViewById(R.id.webView) // Find the WebView inside the dialogView
+        val video = "<iframe width=\"100%\" height=\"100%\" src=\"https://www.youtube.com/embed/tUesv5u5bvA\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" allowfullscreen></iframe>"
+        webView.loadData(video, "text/html", "utf-8")
+        webView.settings.javaScriptEnabled = true
+        webView.webChromeClient = WebChromeClient()
+
+        bottomSheetDialog.show()
     }
 
     companion object {

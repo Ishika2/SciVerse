@@ -50,4 +50,8 @@
 </string>
     <string name="molalrity_summary">Molarity, on the other hand, is the number of moles of solute per liter of solution. It quantifies the concentration in a given volume.
 </string>
+    <string name="normality_summary">Normality (N) is a measure of the concentration of a solute in a solution, specifically in terms of its chemical equivalents per liter of solution. It takes into account the chemical reactivity of the solute.
+    </string>
+
+    <string name="dilution_summary">Dilution is the process of reducing the concentration of a solute in a solution by adding more solvent. It results in a decrease in the number of solute particles per unit volume while maintaining the total amount of solute.</string>
 </resources>
