@@ -7,12 +7,14 @@ import android.view.MenuItem
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.fragment.app.Fragment
+import com.example.sciverse.CustomAuthentication.CustomSigninActivity
 import com.example.sciverse.NavigationDrawer.ProfileActivity
 import com.example.sciverse.bottomNavBar.CalculatorFragment
 import com.example.sciverse.bottomNavBar.HomeFragment
 import com.example.sciverse.bottomNavBar.LibraryFragment
 import com.example.sciverse.databinding.ActivityMainBinding
 import com.google.android.material.navigation.NavigationView
+import com.google.firebase.auth.FirebaseAuth
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
@@ -74,11 +76,17 @@ class MainActivity : AppCompatActivity() {
             // Handle menu item clicks here
             when (menuItem.itemId) {
                 R.id.nav_account -> {
-                    // Handle click on menu item 1
+                    val intent = Intent(this, ProfileActivity::class.java)
+                    startActivity(intent)
                     true
                 }
                 R.id.nav_settings -> {
                     // Handle click on menu item 2
+                    true
+                }
+                R.id.nav_logout -> {
+                    FirebaseAuth.getInstance().signOut()
+                    startActivity(Intent(this, CustomSigninActivity::class.java))
                     true
                 }
                 // Add more menu item handling as needed

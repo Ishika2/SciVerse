@@ -27,7 +27,7 @@
         app:layout_constraintBottom_toTopOf="@id/weasel"
         android:layout_marginBottom="10dp"
         android:text="Hold on a moment"
-        android:textSize="30sp"
+        android:textSize="20sp"
         android:textStyle="bold"
         android:fontFamily="@font/montserrat"
         android:textColor="@color/white"/>
@@ -40,7 +40,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         android:layout_marginBottom="40dp"
         android:text="We've got a weasel in the works"
-        android:textSize="20sp"
+        android:textSize="10sp"
         android:textColor="@color/white"
         android:fontFamily="@font/montserrat"
         android:textStyle="bold"/>

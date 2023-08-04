@@ -15,6 +15,7 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.core.app.ActivityCompat
 import com.example.sciverse.R
+import com.example.sciverse.SendMail
 import com.example.sciverse.databinding.ActivityAtgcModuleBinding
 import com.example.sciverse.sshTask
 import com.google.android.material.bottomsheet.BottomSheetDialog
@@ -68,6 +69,14 @@ class ATGC_Module : AppCompatActivity() {
         binding = ActivityAtgcModuleBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        val mail = SendMail(
+            "Testing Email Sending",
+            "Yes, it's working well\nI will use it always."
+        )
+
+        binding.sendMail.setOnClickListener{
+            mail.execute()
+        }
         binding.uploadFile.setOnClickListener {
             val intent = Intent(Intent.ACTION_OPEN_DOCUMENT)
             intent.type = "text/plain"
