@@ -234,18 +234,19 @@
                             app:layout_constraintEnd_toStartOf="@id/sendMail"
                             app:cardCornerRadius="50dp"
                             app:cardBackgroundColor="@color/black"
-                            android:layout_marginTop="40dp">
+                            android:layout_marginTop="30dp"
+                            android:layout_marginBottom="20dp">
 
                             <Button
                                 android:id="@+id/watchvideo"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
+                                android:layout_width="wrap_content"
+                                android:layout_height="30dp"
                                 android:fontFamily="@font/montserrat"
                                 android:text="Watch video for reference!"
                                 android:textColor="@color/white"
-                                android:textSize="15sp"
+                                android:textSize="10sp"
                                 android:background="@color/black"
-                                android:layout_margin="10dp"/>
+                                android:layout_margin="15dp"/>
                         </androidx.cardview.widget.CardView>
 
                         <ImageView
@@ -255,7 +256,7 @@
                             app:layout_constraintTop_toBottomOf="@+id/FreqC"
                             app:layout_constraintStart_toEndOf="@id/cardview"
                             app:layout_constraintEnd_toEndOf="parent"
-                            android:layout_marginTop="40dp"
+                            android:layout_marginTop="30dp"
                             android:src="@drawable/gmail_logo"
                             android:scaleType="centerCrop"/>
 

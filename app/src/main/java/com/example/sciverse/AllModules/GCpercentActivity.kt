@@ -2,8 +2,10 @@ package com.example.sciverse.AllModules
 
 import android.app.Activity
 import android.content.ContentValues
+import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
+import android.net.ConnectivityManager
 import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -15,6 +17,7 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.core.app.ActivityCompat
 import com.example.sciverse.R
+import com.example.sciverse.SendMail
 import com.example.sciverse.databinding.ActivityGcpercentBinding
 import com.example.sciverse.sshTask
 import com.google.android.material.bottomsheet.BottomSheetDialog
@@ -58,6 +61,16 @@ class GCpercentActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityGcpercentBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        val online = isOnline(this) // Assuming you are calling it inside an activity or a context-aware class
+        binding.sendMail.setOnClickListener{
+            if (online) {
+                SendMail().sendEmail("Results of your GC Percentage😊",
+                    "Results :- ${binding.result}")
+            } else {
+                Toast.makeText(this, "Please connect to the internet!", Toast.LENGTH_SHORT).show()
+            }
+        }
 
         binding.uploadFile.setOnClickListener {
             val intent = Intent(Intent.ACTION_OPEN_DOCUMENT)
@@ -264,5 +277,10 @@ class GCpercentActivity : AppCompatActivity() {
 
     companion object {
         private const val FILE_PICK_REQUEST_CODE = 1
+    }
+    fun isOnline(context: Context): Boolean {
+        val cm = context.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
+        val netInfo = cm.activeNetworkInfo
+        return netInfo != null && netInfo.isConnectedOrConnecting
     }
 }

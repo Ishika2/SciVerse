@@ -2,8 +2,10 @@ package com.example.sciverse.AllModules
 
 import android.app.Activity
 import android.content.ContentValues
+import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
+import android.net.ConnectivityManager
 import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -16,6 +18,7 @@ import android.widget.Toast
 import androidx.core.app.ActivityCompat
 import com.example.sciverse.R
 import com.example.sciverse.SendMail
+//import com.example.sciverse.SendMail
 import com.example.sciverse.databinding.ActivityAtgcModuleBinding
 import com.example.sciverse.sshTask
 import com.google.android.material.bottomsheet.BottomSheetDialog
@@ -69,14 +72,16 @@ class ATGC_Module : AppCompatActivity() {
         binding = ActivityAtgcModuleBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        val mail = SendMail(
-            "Testing Email Sending",
-            "Yes, it's working well\nI will use it always."
-        )
-
+        val online = isOnline(this) // Assuming you are calling it inside an activity or a context-aware class
         binding.sendMail.setOnClickListener{
-            mail.execute()
+            if (online) {
+                SendMail().sendEmail("Results of your ATGC calculations😊",
+                    "Frequncy A :- ${FreqA.text}" + "\nFrequency T :- ${FreqT.text}" + "\nFrequency G :- ${FreqG.text}" + "\nFrequency C :- ${FreqC.text}")
+            } else {
+                Toast.makeText(this, "Please connect to the internet!", Toast.LENGTH_SHORT).show()
+            }
         }
+
         binding.uploadFile.setOnClickListener {
             val intent = Intent(Intent.ACTION_OPEN_DOCUMENT)
             intent.type = "text/plain"
@@ -332,4 +337,10 @@ class ATGC_Module : AppCompatActivity() {
     companion object {
         private const val FILE_PICK_REQUEST_CODE = 1
     }
+    fun isOnline(context: Context): Boolean {
+        val cm = context.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
+        val netInfo = cm.activeNetworkInfo
+        return netInfo != null && netInfo.isConnectedOrConnecting
+    }
+
 }

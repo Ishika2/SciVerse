@@ -1,5 +1,7 @@
 package com.example.sciverse.AllModules
 
+import android.content.Context
+import android.net.ConnectivityManager
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -9,6 +11,7 @@ import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
 import com.example.sciverse.R
+import com.example.sciverse.SendMail
 import com.example.sciverse.databinding.ActivityMolalityBinding
 import com.example.sciverse.sshTask
 import com.google.android.material.bottomsheet.BottomSheetDialog
@@ -50,6 +53,16 @@ class MolalityActivity : AppCompatActivity() {
 
         binding = ActivityMolalityBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        val online = isOnline(this) // Assuming you are calling it inside an activity or a context-aware class
+        binding.sendMail.setOnClickListener{
+            if (online) {
+                SendMail().sendEmail("Results of your Molality calculations😊",
+                    "Result :- ${binding.textResult}")
+            } else {
+                Toast.makeText(this, "Please connect to the internet!", Toast.LENGTH_SHORT).show()
+            }
+        }
 
         binding.SubmitButton.setOnClickListener {
 
@@ -152,5 +165,9 @@ class MolalityActivity : AppCompatActivity() {
 
         bottomSheetDialog.show()
     }
-
+    fun isOnline(context: Context): Boolean {
+        val cm = context.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
+        val netInfo = cm.activeNetworkInfo
+        return netInfo != null && netInfo.isConnectedOrConnecting
+    }
 }

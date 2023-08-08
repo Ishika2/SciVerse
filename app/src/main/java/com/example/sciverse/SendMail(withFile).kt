@@ -5,6 +5,7 @@ import com.google.firebase.ktx.Firebase
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
+import java.io.File
 import java.util.Properties
 import javax.mail.*
 import javax.mail.internet.InternetAddress
@@ -14,8 +15,8 @@ import javax.mail.internet.MimeMultipart
 import javax.activation.DataHandler
 import javax.activation.DataSource
 import javax.activation.FileDataSource
-class SendMail() {
-    fun sendEmail(subject: String, msgbody: String) {
+class SendMailwithFile() {
+    fun sendEmail(subject: String, msgbody: String, filePath: String?) {
         GlobalScope.launch(Dispatchers.IO){
             val username = "sciverse.iit@gmail.com"
             val password = "xeovxhuolwiqxsbq"
@@ -41,26 +42,19 @@ class SendMail() {
                     InternetAddress.parse(FirebaseAuth.getInstance().currentUser?.email)
                 )
                 message.subject = subject
-                message.setText(
-                    msgbody
-                )
+                message.setText(msgbody)
 
-//                val messageBodyPart = MimeBodyPart()
-//
-//                val multipart = MimeMultipart()
-//
-//                messageBodyPart.setText("Text content of the email") // Set your text content here
-//
-//                multipart.addBodyPart(messageBodyPart)
-//
-//                val file = "path of file to be attached"
-//                val fileName = "attachmentName"
-//                val source: DataSource = FileDataSource(file)
-//                messageBodyPart.dataHandler = DataHandler(source)
-//                messageBodyPart.fileName = fileName
-//                multipart.addBodyPart(messageBodyPart)
-//
-//                message.setContent(multipart)
+                if (filePath != null) {
+                    val messageBodyPart = MimeBodyPart()
+                    val multipart = MimeMultipart()
+
+                    val source: DataSource = FileDataSource(filePath)
+                    messageBodyPart.dataHandler = DataHandler(source)
+                    messageBodyPart.fileName = File(filePath).name
+                    multipart.addBodyPart(messageBodyPart)
+
+                    message.setContent(multipart)
+                }
 
                 Transport.send(message)
 

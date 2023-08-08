@@ -2,8 +2,10 @@ package com.example.sciverse.AllModules
 
 import android.app.Activity
 import android.content.ContentValues
+import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
+import android.net.ConnectivityManager
 import android.net.Uri
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
@@ -16,6 +18,7 @@ import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.core.app.ActivityCompat
 import com.example.sciverse.R
+import com.example.sciverse.SendMail
 import com.example.sciverse.databinding.ActivityDnacuttingBinding
 import com.example.sciverse.sshTask
 import com.google.android.material.bottomsheet.BottomSheetDialog
@@ -26,6 +29,8 @@ import java.io.File
 import java.io.FileOutputStream
 import java.io.InputStream
 import java.lang.Exception
+import android.os.Environment
+import com.example.sciverse.SendMailwithFile
 
 class DNAcuttingActivity : AppCompatActivity() {
     lateinit var binding: ActivityDnacuttingBinding
@@ -52,6 +57,28 @@ class DNAcuttingActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityDnacuttingBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        val online = isOnline(this) // Assuming you are calling it inside an activity or a context-aware class
+        binding.sendMail.setOnClickListener{
+            if (online) {
+                // Get the downloaded file path
+                val downloadedFilePath = File(
+                    Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS),
+                    "$JobId.txt"
+                ).absolutePath
+
+                // Send the email with the downloaded file as attachment
+                GlobalScope.launch {
+                    SendMailwithFile().sendEmail(
+                        "The results for your DNA cutting 😊",
+                        "Please find the results file attached below",
+                        downloadedFilePath
+                    )
+                }
+            } else {
+                Toast.makeText(this, "Please connect to the internet!", Toast.LENGTH_SHORT).show()
+            }
+        }
 
         binding.uploadFile.setOnClickListener {
             val intent = Intent(Intent.ACTION_OPEN_DOCUMENT)
@@ -232,5 +259,11 @@ class DNAcuttingActivity : AppCompatActivity() {
 
     companion object {
         private const val FILE_PICK_REQUEST_CODE = 1
+    }
+
+    fun isOnline(context: Context): Boolean {
+        val cm = context.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
+        val netInfo = cm.activeNetworkInfo
+        return netInfo != null && netInfo.isConnectedOrConnecting
     }
 }
