@@ -1,8 +1,10 @@
 package com.example.sciverse.AllModules
 
 import android.app.Activity
+import android.app.AlertDialog
 import android.content.ContentValues
 import android.content.Context
+import android.content.DialogInterface
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.net.ConnectivityManager
@@ -18,7 +20,6 @@ import android.widget.Toast
 import androidx.core.app.ActivityCompat
 import com.example.sciverse.R
 import com.example.sciverse.SendMail
-//import com.example.sciverse.SendMail
 import com.example.sciverse.databinding.ActivityAtgcModuleBinding
 import com.example.sciverse.sshTask
 import com.google.android.material.bottomsheet.BottomSheetDialog
@@ -81,6 +82,8 @@ class ATGC_Module : AppCompatActivity() {
                 Toast.makeText(this, "Please connect to the internet!", Toast.LENGTH_SHORT).show()
             }
         }
+
+        showAlertDialog()
 
         binding.uploadFile.setOnClickListener {
             val intent = Intent(Intent.ACTION_OPEN_DOCUMENT)
@@ -341,6 +344,24 @@ class ATGC_Module : AppCompatActivity() {
         val cm = context.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
         val netInfo = cm.activeNetworkInfo
         return netInfo != null && netInfo.isConnectedOrConnecting
+    }
+
+    private fun showAlertDialog() {
+        val alertDialogBuilder = AlertDialog.Builder(this)
+        alertDialogBuilder.setTitle("Welcome!")
+        alertDialogBuilder.setMessage("This is the ATGC Module activity."
+        + "\nATGC is an acronym for the four types of bases found in a DNA molecule: \nadenine (A), cytosine (C), guanine (G), and thymine (T). \nA DNA molecule consists of two strands wound around each other, with each strand held together by bonds between the bases. \nAdenine pairs with thymine, and cytosine pairs with guanine.")
+        alertDialogBuilder.setNegativeButton("SKIP") { dialogInterface: DialogInterface, _: Int ->
+            dialogInterface.dismiss()
+        }
+        // Add a button with sample inputs
+        alertDialogBuilder.setPositiveButton("Sample Inputs") { dialogInterface: DialogInterface, _: Int ->
+            // Handle button click
+            dialogInterface.dismiss()
+        }
+        val alertDialog: AlertDialog = alertDialogBuilder.create()
+        alertDialog.setCancelable(false)
+        alertDialog.show()
     }
 
 }
