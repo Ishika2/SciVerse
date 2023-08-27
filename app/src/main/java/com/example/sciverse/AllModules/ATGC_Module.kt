@@ -18,6 +18,9 @@ import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
 import androidx.core.app.ActivityCompat
+import com.example.sciverse.JobDB.job
+import com.example.sciverse.JobDB.jobDao
+import com.example.sciverse.JobDB.jobRoomDatabase
 import com.example.sciverse.R
 import com.example.sciverse.SendMail
 import com.example.sciverse.databinding.ActivityAtgcModuleBinding
@@ -40,6 +43,8 @@ import java.lang.Exception
 class ATGC_Module : AppCompatActivity() {
     lateinit var binding: ActivityAtgcModuleBinding
     lateinit var dialog: BottomSheetDialog
+    private lateinit var database: jobRoomDatabase
+    private lateinit var dao: jobDao
     var JobId: String = System.currentTimeMillis().toString() //"1234"
     val JobName: String = "DNA"
     val sshTask2 = sshTask()
@@ -72,6 +77,11 @@ class ATGC_Module : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityAtgcModuleBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        // Initialize the database
+        database = jobRoomDatabase.getDatabase(this)
+        // Initialize the dao
+        dao = database.dao()
 
         val online = isOnline(this) // Assuming you are calling it inside an activity or a context-aware class
         binding.sendMail.setOnClickListener{
@@ -291,6 +301,9 @@ class ATGC_Module : AppCompatActivity() {
             }
             channel2.disconnect()
             session.disconnect()
+
+            val newJob = job(0, JobId, "A:-${FreqA.text}, T:-${FreqT.text}, G:-${FreqG.text}, C:-${FreqC.text}")
+            dao.insert(newJob)
         }
     }
 
