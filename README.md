@@ -18,10 +18,43 @@ Enjoy the convenience of an in-app video player, enhancing your research experie
 The app includes a robust mailing system that simplifies sending results to your email using SMTP.
 
 ## Screenshots
-<table>
+<p align="center">
+<table border = "0" align = "center">
   <tr>
     <td>
-      <img src="/app screenshots/1.jpeg">
+      <img src="/app screenshots/1.jpg">
+    </td>
+    <td>
+      <img src="/app screenshots/2.jpg">
+    </td>
+    <td>
+      <img src="/app screenshots/3.jpg">
+    </td>
+    <td>
+      <img src="/app screenshots/4.jpg">
+    </td>
+    <td>
+      <img src="/app screenshots/5.jpg">
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <img src="/app screenshots/6.jpg">
+    </td>
+    <td>
+      <img src="/app screenshots/7.jpg">
+    </td>
+    <td>
+      <img src="/app screenshots/8.jpg">
+    </td>
+    <td>
+      <img src="/app screenshots/9.jpg">
+    </td>
+    <td>
+      <img src="/app screenshots/10.jpg">
     </td>
   </tr>
 </table>
+
+  
+</p>
