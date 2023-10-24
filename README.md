@@ -1,8 +1,27 @@
 # SciVerse
-Android Development Project at IIT Delhi
+Android Development Project at SCFBio Lab, IIT Delhi
 
-• This Android Application implements the research work done by the scientists of SCFBio Lab, IIT Delhi. <br>
-• We have given an easy-to-use and interactive UI to the Python Modules stored on the Supercomputer of the lab. <br>
-• It uses SSH Connectivity to send requests and receive results from the modules. <br>
-• More features include an in-app video player and a mailing system to send results to the user’s email using SMTP.
+## About
+SciVerse, an Android application developed at SCFBio Lab, seamlessly integrates cutting-edge research with an intuitive user interface. It's where science meets user-friendly technology. 🚀✨
 
+## Features
+<b>Intuitive User Interface</b> 🌟 <br>
+Designed an easy-to-use and interactive UI, providing seamless access to the Python Modules stored on the Supercomputer of the lab.
+
+<b>SSH Connectivity</b> 🚀 <br>
+SciVerse utilizes SSH Connectivity, enabling users to send requests and receive results from these modules efficiently.
+
+<b>In-App Video Player</b> 🎥 <br>
+Enjoy the convenience of an in-app video player, enhancing your research experience.
+
+<b>Effortless Emailing</b> 📧 <br>
+The app includes a robust mailing system that simplifies sending results to your email using SMTP.
+
+## Screenshots
+<table>
+  <tr>
+    <td>
+      <img src="/app screenshots/1.jpeg">
+    </td>
+  </tr>
+</table>
